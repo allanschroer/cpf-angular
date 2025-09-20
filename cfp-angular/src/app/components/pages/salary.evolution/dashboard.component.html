@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="m-3">Metrics Dashboard</h1>
+  
+  <div class="grid cols-2 cols-lg-2 cols-md-2 cols-sm-1 cols-xs-1 gap-3">
+    <!-- Average Salary Chart -->
+    <mat-card class="p-3">
+      <mat-card-header>
+        <mat-card-title class="flex align-center">
+          <mat-icon>paid</mat-icon>
+          <span>Average Salary by Position</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas baseChart [data]="averageSalaryChartData"
+                [options]="averageSalaryChartOptions"
+                [type]="'bar'">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Average Tenure Chart -->
+    <mat-card class="p-3">
+      <mat-card-header>
+        <mat-card-title class="flex align-center">
+          <mat-icon>timer</mat-icon>
+          <span>Average Tenure by Position</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas baseChart [data]="averageTenureChartData"
+                [options]="averageTenureChartOptions"
+                [type]="'bar'">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

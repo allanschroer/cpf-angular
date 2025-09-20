@@ -1,0 +1,37 @@
+.employees-container {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.mat-mdc-table {
+  .mat-mdc-row {
+    &:hover {
+      background: #c8c8c8a2;
+    }
+  }
+
+  .mat-mdc-cell, .mat-mdc-header-cell {
+    padding: 16px;
+  }
+
+  .actions-cell {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.text-center {
+text-align: center !important;
+}

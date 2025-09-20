@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="true" [class.collapsed]="!isExpanded">
+    <mat-toolbar>
+      @if (isExpanded) {
+      <span>Options</span>
+      }
+      <button mat-icon-button  (click)="toggleSidebar()">
+        <mat-icon>{{isExpanded ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+      </button>
+    </mat-toolbar>
+    
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        @if (isExpanded) {
+          <span>Dashboard</span>
+        }
+      </a>
+      <a mat-list-item routerLink="/employees" routerLinkActive="active">
+        <mat-icon>people</mat-icon>
+        @if (isExpanded) {
+          <span>Employees</span>
+        }
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [style.margin-left.px]="!isExpanded ? 60 : 250">
+    <mat-toolbar color="primary">
+      <span>Employee Management System</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,168 @@
+{
+  "employees": [
+    {
+      "id": "9533",
+      "name": "Allanzitos",
+      "email": "Allanzitos@gmail.com",
+      "position": "Junior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "",
+      "salaryHistory": [
+        {
+          "date": "Fri Jan 01 2021",
+          "amount": 51000
+        },
+        {
+          "date": "Sat Jan 01 2022",
+          "amount": 52000
+        },
+        {
+          "date": "Sun Jan 01 2023",
+          "amount": 53000
+        },
+        {
+          "date": "Mon Jan 01 2024",
+          "amount": 54000
+        }
+      ]
+    },
+    {
+      "id": "5074",
+      "name": "Allan Bidas",
+      "email": "allanbida@gmail.com",
+      "position": "Project Manager",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "",
+      "salaryHistory": [
+        {
+          "date": "Fri Jan 01 2021",
+          "amount": 51000
+        },
+        {
+          "date": "Sat Jan 01 2022",
+          "amount": 52000
+        },
+        {
+          "date": "Sun Jan 01 2023",
+          "amount": 53000
+        },
+        {
+          "date": "Mon Jan 01 2024",
+          "amount": 54000
+        }
+      ]
+    },
+    {
+      "id": "7134",
+      "name": "Gustavo Gaitero",
+      "email": "gugugaitero@gaita.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "",
+      "salaryHistory": [
+        {
+          "date": "Fri Jan 01 2021",
+          "amount": 51000
+        },
+        {
+          "date": "Sat Jan 01 2022",
+          "amount": 52000
+        },
+        {
+          "date": "Sun Jan 01 2023",
+          "amount": 53000
+        },
+        {
+          "date": "Mon Jan 01 2024",
+          "amount": 54000
+        }
+      ]
+    },
+    {
+      "name": "quited employee from itau",
+      "email": "quited@itau.com",
+      "position": "Senior Developer",
+      "isActive": false,
+      "standalone": true,
+      "departureDate": "2025-09-12T03:00:00.000Z",
+      "id": "789"
+    },
+    {
+      "id": 1094,
+      "name": "excluded",
+      "email": "excluded@gmail.com",
+      "position": "Project Manager",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "",
+      "salaryHistory": [
+        {
+          "date": "Fri Jan 01 2021",
+          "amount": 51000
+        },
+        {
+          "date": "Sat Jan 01 2022",
+          "amount": 52000
+        },
+        {
+          "date": "Sun Jan 01 2023",
+          "amount": 53000
+        },
+        {
+          "date": "Mon Jan 01 2024",
+          "amount": 54000
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "averageSalaries": {
+      "positions": [
+        "Junior Developer",
+        "Senior Developer",
+        "Project Manager"
+      ],
+      "averages": [
+        60000,
+        86500,
+        90000
+      ]
+    },
+    "averageTenure": {
+      "positions": [
+        "Junior Developer",
+        "Senior Developer",
+        "Project Manager"
+      ],
+      "averages": [
+        1.5,
+        2.8,
+        2.7
+      ]
+    },
+    "salaryEvolution": {
+      "dates": [
+        "2023-01-01",
+        "2024-01-01",
+        "2025-01-01"
+      ]
+    }
+  },
+  "positions": [
+    {
+      "id": "1",
+      "position": "Junior Developer"
+    },
+    {
+      "id": "2",
+      "position": "Senior Developer"
+    },
+    {
+      "id": "3",
+      "position": "Project Manager"
+    }
+  ]
+}
