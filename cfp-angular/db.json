@@ -1,0 +1,160 @@
+{
+  "employees": [
+    {
+      "name": "Jhoe Jhoe da Silva",
+      "email": "john.doe@cpf-company.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "departureDate": "",
+      "id": "1"
+    },
+    {
+      "name": "Hanna M.",
+      "email": "jane.smith@company.com",
+      "position": "Project Manager",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "position": "Junior Developer",
+      "isActive": true,
+      "salary": 60000,
+      "salaryHistory": [
+        {
+          "amount": 55000,
+          "date": "2024-01-01"
+        },
+        {
+          "amount": 60000,
+          "date": "2025-01-01"
+        }
+      ]
+    },
+    {
+      "name": "Allanzitos",
+      "email": "Allanzitos@123.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": "2025-09-17T03:00:00.000Z",
+      "id": "4"
+    },
+    {
+      "id": 2790,
+      "name": "Teste da Silva",
+      "email": "testedasilva@gmail.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": ""
+    },
+    {
+      "id": 2285,
+      "name": "Senior Developer",
+      "email": "testedasilva@gmail.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": ""
+    },
+    {
+      "id": 6713,
+      "name": "Teste da Silva Sauro",
+      "email": "testedasilva@gmail.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": ""
+    },
+    {
+      "id": 0,
+      "name": "1231312",
+      "email": "123123@teste.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": ""
+    },
+    {
+      "id": 4013,
+      "name": "12321312",
+      "email": "12312312@outlook.com",
+      "position": "Senior Developer",
+      "isActive": true,
+      "standalone": true,
+      "departureDate": ""
+    }
+  ],
+  "metrics": {
+    "averageSalaries": {
+      "positions": [
+        "Junior Developer",
+        "Senior Developer",
+        "Project Manager"
+      ],
+      "averages": [
+        60000,
+        86500,
+        90000
+      ]
+    },
+    "averageTenure": {
+      "positions": [
+        "Junior Developer",
+        "Senior Developer",
+        "Project Manager"
+      ],
+      "averages": [
+        1.5,
+        2.8,
+        2.7
+      ]
+    },
+    "salaryEvolution": {
+      "dates": [
+        "2023-01-01",
+        "2024-01-01",
+        "2025-01-01"
+      ],
+      "employees": [
+        {
+          "name": "John Doe",
+          "salaries": [
+            75000,
+            80000,
+            85000
+          ]
+        },
+        {
+          "name": "Jane Smith",
+          "salaries": [
+            82000,
+            86000,
+            90000
+          ]
+        },
+        {
+          "name": "Mike Johnson",
+          "salaries": [
+            null,
+            55000,
+            60000
+          ]
+        },
+        {
+          "name": "Sarah Williams",
+          "salaries": [
+            78000,
+            83000,
+            88000
+          ]
+        }
+      ]
+    }
+  }
+}
