@@ -2,6 +2,21 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
 
+## Mock API (json-server) — start this before the web app
+
+This project uses `json-server` to provide a small mocked REST API from `db.json`. Start the mock API first, then start the Angular app in a separate terminal.
+
+```cmd
+npm run api
+```
+
+This runs the local `json-server` and serves endpoints such as:
+- http://localhost:3000/employees
+- http://localhost:3000/metrics
+- http://localhost:3000/positions
+
+
+
 ## Development server
 
 To start a local development server, run:
@@ -11,20 +26,6 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
@@ -44,16 +45,8 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Author
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project was made by Allan Schroer.

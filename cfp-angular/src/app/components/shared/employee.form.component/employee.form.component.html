@@ -19,7 +19,13 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Position</mat-label>
-      <input matInput formControlName="position" required>
+      <mat-select formControlName="position" required>
+        @for (position of positions; track position.id) {
+          <mat-option [value]="position.id">
+            {{ position.position }}
+          </mat-option>
+        }
+      </mat-select>
       @if (employeeForm.get('position')?.invalid) {
         <mat-error>Position is required</mat-error>
       }

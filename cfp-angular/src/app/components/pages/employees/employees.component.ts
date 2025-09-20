@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Employee } from '../../../models/employee';
 import { EmployeeService } from '../../../services/employee/employee.api.service';
@@ -13,6 +12,7 @@ import { filter } from 'rxjs/internal/operators/filter';
 import { SalaryEvolutionComponent } from '../../shared/salary.evolution.component/salary.evolution.component';
 import { MatIconModule } from "@angular/material/icon";
 import { FeedbackService } from '../../../services/feedback/feedback.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-employees',
@@ -30,8 +30,9 @@ export class EmployeesComponent implements OnInit {
     'departureDate',
     'actions',
   ];
-  dataSource = new MatTableDataSource<Employee>();
 
+  employees$!: Observable<Employee[]>;
+  
   constructor(
     private employeeService: EmployeeService,
     private dialog: MatDialog,
@@ -60,15 +61,7 @@ export class EmployeesComponent implements OnInit {
   }
 
  loadEmployees(): void {
-    this.employeeService.getEmployees().subscribe({
-      next: (data: Employee[]) => {
-        this.dataSource.data = data;
-      },
-      error: (error) => {
-        this.feedbackService.showError('Failed to load employees. Please check if the server is running.');
-        console.error('Load employees error:', error);
-      }
-    });
+   this.employees$ = this.employeeService.getEmployees();
   }
 
   addEmployee(): void {

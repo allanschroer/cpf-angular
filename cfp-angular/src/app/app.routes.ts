@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { EmployeesComponent } from './components/pages/employees.component/employees.component';
-import { DashboardComponent } from './components/pages/dashboard.component/dashboard.component';
+import { EmployeesComponent } from './components/pages/employees/employees.component';
+import { DashboardComponent } from './components/pages/salary.evolution/dashboard.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [

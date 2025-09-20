@@ -31,3 +31,8 @@ export interface EmployeeMetrics {
     }[];
   };
 }
+
+export interface EmployeePosition {
+  id : number;
+  position: string;
+}

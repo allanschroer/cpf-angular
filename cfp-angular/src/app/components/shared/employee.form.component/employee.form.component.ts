@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Employee } from '../../../models/employee';
+import { Employee, EmployeePosition } from '../../../models/employee';
 import { EmployeeService } from '../../../services/employee/employee.api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, NativeDateAdapter } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {
+  MatNativeDateModule,
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  NativeDateAdapter,
+} from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { FeedbackService } from '../../../services/feedback/feedback.service';
@@ -31,28 +38,33 @@ import { FeedbackService } from '../../../services/feedback/feedback.service';
     MatNativeDateModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [
-  MatDatepickerModule,
-  { provide: DateAdapter, useClass: NativeDateAdapter },
-  { provide: MAT_DATE_LOCALE, useValue: 'en' },
-  { provide: MAT_DATE_FORMATS, useValue: {
-      parse: {
-        dateInput: 'DD/MM/YYYY',
+    MatDatepickerModule,
+    { provide: DateAdapter, useClass: NativeDateAdapter },
+    { provide: MAT_DATE_LOCALE, useValue: 'en' },
+    {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
+        parse: {
+          dateInput: 'DD/MM/YYYY',
+        },
+        display: {
+          dateInput: 'DD/MM/YYYY',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY',
+        },
       },
-      display: {
-        dateInput: 'DD/MM/YYYY',
-        monthYearLabel: 'MMM YYYY',
-        dateA11yLabel: 'LL',
-        monthYearA11yLabel: 'MMMM YYYY',
-      },
-    }
-  }
-]
+    },
+  ],
 })
 export class EmployeeFormComponent {
   employeeForm: FormGroup;
   isEdit = false;
+
+  positions: EmployeePosition[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -86,12 +98,38 @@ export class EmployeeFormComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.employeeService.getEmployeePositions().subscribe({
+      next: (positions) => {
+        this.positions = positions;
+        if (this.isEdit && this.data.employee) {
+          const currentPosition = this.positions.find(
+            p => p.position == (this.data.employee?.position ?? '')
+          );
+          if (currentPosition) {
+            this.employeeForm.patchValue({
+              position: currentPosition.id
+            });
+          }
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching positions:', error);
+      },
+    });
+  }
+
   onSubmit(): void {
     if (this.employeeForm.valid) {
+      const formValue = this.employeeForm.value;
+      const selectedPosition = this.positions.find(p => p.id === formValue.position);
+      
       const employee: Employee = {
-        ...this.employeeForm.value,
+        ...formValue,
         id: this.data.employee?.id || 0,
+        position: selectedPosition?.position || '',
       };
+
       if (this.isEdit) {
         this.employeeService.updateEmployee(employee.id, employee).subscribe({
           next: () => {
@@ -101,9 +139,15 @@ export class EmployeeFormComponent {
           error: (error) => {
             this.feedbackService.showError('Failed to update employee. Please try again.');
             console.error('Update error:', error, employee);
-          }
+          },
         });
       } else {
+        employee.salaryHistory = [
+          { date: new Date(2021, 0, 1).toDateString(), amount: 51000 },
+          { date: new Date(2022, 0, 1).toDateString(), amount: 52000 },
+          { date: new Date(2023, 0, 1).toDateString(), amount: 53000 },
+          { date: new Date(2024, 0, 1).toDateString(), amount: 54000 },
+        ];
         this.employeeService.createEmployee(employee).subscribe({
           next: () => {
             this.feedbackService.showSuccess('Employee created successfully!');
@@ -112,7 +156,7 @@ export class EmployeeFormComponent {
           error: (error) => {
             this.feedbackService.showError('Failed to create employee. Please try again.');
             console.error('Create error:', error);
-          }
+          },
         });
       }
     }
